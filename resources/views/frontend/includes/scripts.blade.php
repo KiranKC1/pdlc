@@ -1,68 +1,186 @@
+
+<a class="js-go-to u-go-to-v1" href="#!" data-type="fixed" data-position='{
+   "bottom": 15,
+   "right": 15
+ }' data-offset-top="400" data-compensation="#js-header" data-show-effect="zoomIn">
+    <i class="hs-icon hs-icon-arrow-top"></i>
+</a>
+</div>
+
 <!-- JS Global Compulsory -->
 <script src="{{asset('assets/vendor/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('assets/vendor/jquery-migrate/jquery-migrate.min.js')}}"></script>
-<script src="{{asset('assets/vendor/jquery.easing/js/jquery.easing.min.js')}}"></script>
 <script src="{{asset('assets/vendor/popper.min.js')}}"></script>
 <script src="{{asset('assets/vendor/bootstrap/bootstrap.min.js')}}"></script>
+<script>
+    $(window).load(function() {  document.getElementById("hideAll").style.display = "none"; });
+</script>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="offcanvas"]').click(function () {
+            $('.row-offcanvas').toggleClass('active')
+        });
+    });
+</script>
 
-<!-- JS Revolution Slider -->
-<script src="{{asset('assets/vendor/revolution-slider/revolution/js/jquery.themepunch.tools.min.js')}}"></script>
-<script src="{{asset('assets/vendor/revolution-slider/revolution/js/jquery.themepunch.revolution.min.js')}}"></script>
+<!-- JS Implementing Plugins -->
+<script src="{{asset('assets/vendor/hs-megamenu/src/hs.megamenu.js')}}"></script>
+<script src="{{asset('assets/vendor/dzsparallaxer/dzsparallaxer.js')}}"></script>
+<script src="{{asset('assets/vendor/dzsparallaxer/dzsscroller/scroller.js')}}"></script>
+<script src="{{asset('assets/vendor/dzsparallaxer/advancedscroller/plugin.js')}}"></script>
+<script src="{{asset('assets/vendor/masonry/dist/masonry.pkgd.min.js')}}"></script>
+<script src="{{asset('assets/vendor/imagesloaded/imagesloaded.pkgd.min.js')}}"></script>
+<script src="{{asset('assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+<script src="{{asset('assets/vendor/slick-carousel/slick/slick.js')}}"></script>
+<script src="{{asset('assets/vendor/fancybox/jquery.fancybox.min.js')}}"></script>
+<script src="{{asset('assets/vendor/gmaps/gmaps.min.js')}}"></script>
 
-<script src="{{asset('assets/vendor/revolution-slider/revolution-addons/slicey/js/revolution.addon.slicey.min.js')}}"></script>
+<!-- JS Unify -->
+<script src="{{asset('assets/js/hs.core.js')}}"></script>
 
-<script src="{{asset('assets/vendor/revolution-slider/revolution/js/extensions/revolution.extension.actions.min.js')}}"></script>
-<script src="{{asset('assets/vendor/revolution-slider/revolution/js/extensions/revolution.extension.carousel.min.js')}}"></script>
-<script src="{{asset('assets/vendor/revolution-slider/revolution/js/extensions/revolution.extension.kenburn.min.js')}}"></script>
-<script src="{{asset('assets/vendor/revolution-slider/revolution/js/extensions/revolution.extension.layeranimation.min.js')}}"></script>
-<script src="{{asset('assets/vendor/revolution-slider/revolution/js/extensions/revolution.extension.migration.min.js')}}"></script>
-<script src="{{asset('assets/vendor/revolution-slider/revolution/js/extensions/revolution.extension.navigation.min.js')}}"></script>
-<script src="{{asset('assets/vendor/revolution-slider/revolution/js/extensions/revolution.extension.parallax.min.js')}}"></script>
-<script src="{{asset('assets/vendor/revolution-slider/revolution/js/extensions/revolution.extension.slideanims.min.js')}}"></script>
-<script src="{{asset('assets/vendor/revolution-slider/revolution/js/extensions/revolution.extension.video.min.js')}}"></script>
+<script src="{{asset('assets/js/components/hs.header-side.js')}}"></script>
+<script>
+    /**
+     * Hamburgers plugin helper.
+     *
+     * @author Htmlstream
+     * @version 1.0
+     * @requires hamburgers.min.css
+     *
+     */
+    ;(function($){
+        'use strict';
+
+        $.HSCore.helpers.HSHamburgers = {
+
+            /**
+             * Initialize 'hamburgers' plugin.
+             *
+             * @param String selector
+             *
+             * @return undefined;
+             */
+            init: function(selector) {
+
+                if( !selector || !$(selector).length ) return;
+
+                var hamburgers = $(selector),
+                    timeoutid;
+
+                hamburgers.each(function(i, el){
+
+                    var $this = $(this);
+
+                    if($this.closest('button').length) {
+                        $this.closest('button').get(0).addEventListener('click', function(e){
+
+                            var $self = $(this),
+                                $hamburger = $self.find(selector);
+
+                            if(timeoutid) clearTimeout(timeoutid);
+                            timeoutid = setTimeout(function(){
+
+                                $hamburger.toggleClass('is-active');
+
+                            }, 10);
+                            e.preventDefault();
+                        }, false);
+                    }
+                    else {
+                        $this.get(0).addEventListener('click', function(e){
+
+                            var $self = $(this);
+
+                            if(timeoutid) clearTimeout(timeoutid);
+                            timeoutid = setTimeout(function(){
+
+                                $self.toggleClass('is-active');
+
+                            }, 10);
+                            e.preventDefault();
+                        }, false);
+                    }
+
+                });
+
+            }
+
+
+        };
+
+    })(jQuery);
+</script>
+
+<script src="{{asset('assets/js/components/hs.dropdown.js')}}"></script>
+<script src="{{asset('assets/js/components/hs.scrollbar.js')}}"></script>
+<script src="{{asset('assets/js/components/hs.popup.js')}}"></script>
+<script src="{{asset('assets/js/components/hs.carousel.js')}}"></script>
+
+
+<script src="{{asset('assets/js/components/hs.go-to.js')}}"></script>
 
 <!-- JS Custom -->
-<script src="{{asset('assets/js/custom.js')}}"></script>
+<script src="{{asset('assets/js/components/hs.scroll-nav.js')}}"></script>
 
 <!-- JS Plugins Init. -->
 <script>
-     var tpj = jQuery;
-      
-        var revapi1162;
-        tpj(document).ready(function () {
-          if (tpj("#menu").revolution == undefined) {
-            revslider_showDoubleJqueryError("#menu");
-          } else {
-            revapi1162 = tpj("#menu").show().revolution({
-              sliderType: "hero",
-              jsFileLocation: "revolution/js/",
-              sliderLayout: "fullwidth",
-              dottedOverlay: "none",
-              delay: 9000,
-              navigation: {},
-              responsiveLevels: [1240, 1024, 778, 480],
-              visibilityLevels: [1240, 1024, 778, 480],
-              gridwidth: [1240, 1024, 778, 480],
-              gridheight: [110, 110, 110, 110],
-              lazyType: "none",
-              minHeight: "110",
-              shadow: 0,
-              spinner: "off",
-              autoHeight: "off",
-              disableProgressBar: "on",
-              hideThumbsOnMobile: "off",
-              hideSliderAtLimit: 0,
-              hideCaptionAtLimit: 0,
-              hideAllCaptionAtLilmit: 0,
-              debugMode: false,
-              fallbacks: {
-                simplifyAll: "off",
-                disableFocusListener: false,
-              }
+
+
+
+    $(window).on('load', function() {
+        // initialization of HSScrollNav
+        $.HSCore.components.HSScrollNav.init($('#js-scroll-nav'), {
+            duration: 700
+        });
+        //loader
+        // $('#loader').fadeOut();
+        // $('#main_thing').removeAttr("hidden");
+    });
+
+    $(document).on('ready', function () {
+        // initialization of go to
+        $.HSCore.components.HSGoTo.init('.js-go-to');
+
+        // initialization of carousel
+        $.HSCore.components.HSCarousel.init('.js-carousel');
+
+        // initialization of HSDropdown component
+        $.HSCore.components.HSDropdown.init($('[data-dropdown-target]'), {
+            afterOpen: function(){
+                $(this).find('input[type="search"]').focus();
+            }
+        });
+
+        // initialization of masonry
+        $('.masonry-grid').imagesLoaded().then(function () {
+            $('.masonry-grid').masonry({
+                columnWidth: '.masonry-grid-sizer',
+                itemSelector: '.masonry-grid-item',
+                percentPosition: true
             });
         });
+
+        // initialization of popups
+        $.HSCore.components.HSPopup.init('.js-fancybox');
     });
-    </script>
+
+    $(window).on('load', function () {
+        // initialization of header
+        $.HSCore.components.HSHeaderSide.init($('#js-header'));
+        $.HSCore.helpers.HSHamburgers.init('.hamburger');
+
+        // initialization of HSMegaMenu component
+        $('.js-mega-menu').HSMegaMenu({
+            event: 'hover',
+            direction: 'vertical',
+            breakpoint: 991
+        });
+    });
+
+    $('.nav-link').on('click',function(){
+        $( "#header-toggler" ).trigger( "click" );
+    });
+</script>
 @yield('js')
 </body>
 

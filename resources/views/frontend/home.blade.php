@@ -1,5 +1,11 @@
 @extends('frontend.layouts.frontend')
 @section('title', 'Home')
+@section('css')
+  <link rel="stylesheet" href="{{asset('assets/vendor/revolution-slider/revolution/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/vendor/revolution-slider/revolution/css/settings.css')}}'">
+  <link rel="stylesheet" href="{{asset('assets/vendor/revolution-slider/revolution/css/navigation.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/revolution/css/style.css')}}">
+  @endsection
 @section('body')
   <!-- WELCOME SLIDER -->
   <div id="welcome_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="r_hero" data-source="gallery" style="background-color:transparent;padding:0px;">
@@ -681,7 +687,6 @@
                    data-responsive_offset="on"
 
                    data-frames='[{"from":"y:150px;opacity:0;","speed":1000,"to":"o:1;","delay":500,"ease":"Power4.easeOut"},{"delay":"wait","speed":500,"to":"x:300px;opacity:0;","ease":"Power3.easeInOut"}]'
-                   data-vimeoid="119772134" data-videoattributes="title=0&byline=0&portrait=0&api=1" data-videowidth="['590px','468px','453px','302px']" data-videoheight="['435px','345px','334px','223px']" data-videoloop="loop" data-textAlign="['left','left','left','left']"
                    data-paddingtop="[0,0,0,0]"
                    data-paddingright="[0,0,0,0]"
                    data-paddingbottom="[0,0,0,0]"
@@ -1200,6 +1205,20 @@
       </div><!-- END REVOLUTION SLIDER -->
 @endsection
 @section('js')
+  <script src="{{asset('assets/vendor/revolution-slider/revolution/js/jquery.themepunch.tools.min.js')}}"></script>
+  <script src="{{asset('assets/vendor/revolution-slider/revolution/js/jquery.themepunch.revolution.min.js')}}"></script>
+
+  <script src="{{asset('assets/vendor/revolution-slider/revolution-addons/slicey/js/revolution.addon.slicey.min.js')}}"></script>
+
+  <script src="{{asset('assets/vendor/revolution-slider/revolution/js/extensions/revolution.extension.actions.min.js')}}"></script>
+  <script src="{{asset('assets/vendor/revolution-slider/revolution/js/extensions/revolution.extension.carousel.min.js')}}"></script>
+  <script src="{{asset('assets/vendor/revolution-slider/revolution/js/extensions/revolution.extension.kenburn.min.js')}}"></script>
+  <script src="{{asset('assets/vendor/revolution-slider/revolution/js/extensions/revolution.extension.layeranimation.min.js')}}"></script>
+  <script src="{{asset('assets/vendor/revolution-slider/revolution/js/extensions/revolution.extension.migration.min.js')}}"></script>
+  <script src="{{asset('assets/vendor/revolution-slider/revolution/js/extensions/revolution.extension.navigation.min.js')}}"></script>
+  <script src="{{asset('assets/vendor/revolution-slider/revolution/js/extensions/revolution.extension.parallax.min.js')}}"></script>
+  <script src="{{asset('assets/vendor/revolution-slider/revolution/js/extensions/revolution.extension.slideanims.min.js')}}"></script>
+  <script src="{{asset('assets/vendor/revolution-slider/revolution/js/extensions/revolution.extension.video.min.js')}}"></script>
 <script>
         var tpj = jQuery;
       
@@ -1320,53 +1339,7 @@
               }
             });
       
-      
-            revapi1156 = tpj("#products").show().revolution({
-              sliderType: "standard",
-              jsFileLocation: "revolution/js/",
-              sliderLayout: "fullwidth",
-              dottedOverlay: "none",
-              delay: 9000,
-              navigation: {
-                onHoverStop: "off",
-              },
-              viewPort: {
-                enable: true,
-                outof: "wait",
-                visible_area: "90%",
-                presize: false
-              },
-              responsiveLevels: [1240, 1024, 778, 480],
-              visibilityLevels: [1240, 1024, 778, 480],
-              gridwidth: [1240, 1024, 778, 480],
-              gridheight: [1100, 1100, 1100, 1100],
-              lazyType: "single",
-              parallax: {
-                type: "scroll",
-                origo: "slidercenter",
-                speed: 400,
-                levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 46, 47, 48, 49, 50, 100, 55],
-                type: "scroll",
-              },
-              shadow: 0,
-              spinner: "off",
-              stopLoop: "on",
-              stopAfterLoops: 0,
-              stopAtSlide: 1,
-              shuffle: "off",
-              autoHeight: "off",
-              disableProgressBar: "on",
-              hideThumbsOnMobile: "off",
-              hideSliderAtLimit: 0,
-              hideCaptionAtLimit: 0,
-              hideAllCaptionAtLilmit: 0,
-              debugMode: false,
-              fallbacks: {
-                simplifyAll: "off",
-                nextSlideOnWindowFocus: "off",
-                disableFocusListener: false,
-              }
-            });
+
       
             revapi1158 = tpj("#about").show().revolution({
               sliderType: "hero",
